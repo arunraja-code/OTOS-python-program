@@ -1,15 +1,18 @@
-import hashlib
-#Sign-Up
-email=input("Enter you email")
-password=input("Enter your password")
-confirm_password=input("Confirm your password")
-if confirm_password==password:
-    e=confirm_password.encode()
-    h1=hashlib.md5(e).hexdigest()
-    with open("userinfo.txt","w") as f:
-        f.write(email+"\n")
-        f.write(h1)
-        f.close()
-        print("You have signed up successfully")
-else:
-    print("Password is not same as above! \n")
+import tkinter as tk
+root= tk.Tk()
+root.title("Handmade With Love")
+label=tk.Label(root,text="Handmade With Love").grid(row=0,column=0)
+tk.Label(root,text="Email ").grid(row=1,column=0)
+tk.Label(root,text="Password ").grid(row=2, column=0)
+tk.Label(root,text="Confirm Password ").grid(row=3,column=0)
+
+entry1=tk.Entry(root)
+entry2=tk.Entry(root)
+entry3=tk.Entry(root)
+
+entry1.grid(row=1,column=0)
+entry2.grid(row=2,column=0)
+entry3.grid(row=3,column=0)
+button=tk.Button(root,text="Login",width=30,command=root.destroy)
+button.pack()
+root.mainloop()
