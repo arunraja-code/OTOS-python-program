@@ -1,4 +1,5 @@
 import tkinter as tk
+import database
 from signup import show_signup
 window = tk.Tk()
 show_signup(window)
