@@ -1,10 +1,12 @@
 import tkinter as tk
-import database
+from signup import show_signup
 window = tk.Tk()
+show_signup(window)
+
 window.mainloop()
-from tkinter import messagebox
+
 #Login
-window = tk.Tk()
+'''window = tk.Tk()
 window.title("Handmade With Love")
 window.geometry("430x430")
 window.configure(bg="#f5e2e3")
@@ -33,4 +35,4 @@ login_button.grid(row=3,column=0,columnspan=2, pady=30)
 
 frame.pack()
 
-window.mainloop()
+window.mainloop()'''
