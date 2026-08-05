@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from database import cursor, database
-from home import show_home
+from login import show_login
 def show_signup(window):
     for widget in window.winfo_children():
         widget.destroy()
@@ -18,17 +18,18 @@ def show_signup(window):
         bg="#f5e2e3",
         fg="#702f33"
     )
-    title.pack(pady=20)
 
     subtitle = tk.Label(
         frame,
         text = "Create Your Account",
-        font = ("Arial",25),
+        font = ("Arial",25,"bold"),
         bg="#f5e2e3",
         fg = "#702f33" 
 
     )
-    subtitle.pack(pady=10)
+    title.grid(row=0,column=0,columnspan=2,pady=10)
+    subtitle.grid(row=1,column=0,columnspan=2,pady=5)
+
     #Username
     tk.Label(
         frame,
@@ -36,27 +37,29 @@ def show_signup(window):
         font = ("Arial", 15),
         bg="#f5e2e3",
         fg="#702f33"
-    ).pack()
+    ).grid(row=2,column=0,pady=5)
     username_entry = tk.Entry(frame, width = 30, font = ("Arial",12))
-    username_entry.pack(pady=5)
+    username_entry.grid(row=2,column=1,pady=5)
     #Password
     tk.Label(
         frame,
         text = "Password",
         bg="#f5e2e3",
-        fg = "#702f33"
-    ).pack()
+        fg = "#702f33",
+        font=("Arial",15)
+    ).grid(row=4,column=0,pady=5)
     password_entry = tk.Entry(frame, show = "*", width = 30, font = ("Arial",12))
-    password_entry.pack(pady=5)
+    password_entry.grid(row=4,column=1,pady=5)
     #Phone Number
     tk.Label(
         frame,
         text ="Phone Number",
         bg="#f5e2e3",
-        fg = "#702f33"        
-    ).pack()
+        fg = "#702f33",
+        font=("Arial",15)
+    ).grid(row=3,column=0,pady=5)
     phone_entry = tk.Entry(frame, width = 30, font = ("Arial", 12))
-    phone_entry.pack(pady=5)
+    phone_entry.grid(row=3,column=1,pady=5)
 
     def create_account():
         username = username_entry.get()
@@ -76,6 +79,7 @@ def show_signup(window):
             (username,password,phone)
             )
             database.commit()
+
             messagebox.showinfo(
                 "Success",
                 "Welcome to Homemade With Love!"
@@ -85,7 +89,7 @@ def show_signup(window):
                 "Error",
                 "Password already exists"
             )
-        show_home(window)
+
         signup_button = tk.Button(
             frame,
             text = "Create Account",
@@ -98,9 +102,9 @@ def show_signup(window):
         login_label = tk.Label(
             frame,
             text="Already have an account?\n",
-             bg="#eb9da1",
-             fg="blue",
-             cursor="hand2",
-             font=("Arial", 9,"underline")
+            bg="#eb9da1",
+            fg="blue",
+            cursor="hand2",
+            font=("Arial", 9,"underline")
         )
-        login_label.grid(row=6,column=0,columnspan=2)
+        login_label.grid(row=7,column=0,columnspan=2,pady=5)
