@@ -5,7 +5,8 @@ cursor.execute("""
 CREATE TABLE IF NOT EXISTS users(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 username TEXT NOT NULL UNIQUE,
-email TEXT NOT NULL,
+password TEXT NOT NULL,
+phone TEXT NOT NULL,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)
 """)
 database.commit()
